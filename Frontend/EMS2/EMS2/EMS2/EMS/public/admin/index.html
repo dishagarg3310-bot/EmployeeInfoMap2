@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Management System</title>
+
+    <script>
+    // 🔐 AUTH CHECK (Remember Me compatible)
+    const token =
+        localStorage.getItem('token') ||
+        sessionStorage.getItem('token');
+
+    if (!token) {
+        window.location.href = '/index.html';
+    }
+    </script>
+
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="/admin/css/global.css">
+    <link rel="stylesheet" href="/admin/css/sidebar.css">
+    <link rel="stylesheet" href="/admin/css/topbar.css">
+    <link rel="stylesheet" href="/admin/css/dashboard.css">
+    <link rel="stylesheet" href="/admin/css/profile.css">
+    <link rel="stylesheet" href="/admin/css/attendance.css">
+    <link rel="stylesheet" href="/admin/css/home.css">
+    <link rel="stylesheet" href="/admin/css/employee-info.css">
+    <link rel="stylesheet" href="/admin/css/employee-idcard.css">
+    <link rel="stylesheet" href="/admin/css/smart-search.css">
+    <link rel="stylesheet" href="/admin/css/chatbot.css">
+
+
+
+</head>
+<body>
+
+    <!-- Topbar -->
+    <div id="topbar">
+        <!-- topbar.html will be placed here later -->
+    </div>
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <!-- sidebar.html will be placed here later -->
+    </div>
+
+    
+
+    <!-- Main Content Area -->
+    <div class="main">
+        <!-- Page Content -->
+        <div id="content">
+            <!-- dashboard / profile / attendance will load here -->
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="/admin/js/router.js"></script>
+<script src="/admin/js/profile.js"></script>
+<script src="/admin/js/employee-info.js"></script>
+<script src="/admin/js/employee-idcard.js"></script>
+<script src="/admin/js/smart-search.js"></script>
+<script src="/admin/js/chatbot.js"></script>
+<script src="/admin/js/dashboard.js"></script>
+
+
+
+</html>

@@ -1,0 +1,110 @@
+.smart-search-page {
+  padding: 40px;
+  background: #f4f9f9;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+/* Removed smart-top-bar since heading is gone */
+
+/* Smart Card */
+.smart-card {
+  background: white;
+  padding: 30px 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  max-width: 800px;
+  margin: 0 auto; /* center card */
+}
+
+/* Smart Search Header */
+.smart-card-header h1 {
+  margin-bottom: 8px;
+  font-size: 28px;
+  color: #333;
+}
+
+.smart-card-header p {
+  margin: 0 0 20px 0;
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Search Row */
+.smart-search-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px; /* extra spacing below input */
+}
+
+.smart-search-input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.smart-search-btn {
+  background: teal;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+.smart-search-btn:hover {
+  background: #006666;
+}
+
+/* Answer Box */
+.smart-answer-box {
+  display: none;
+  background: #e6f7f7;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+/* Department Banner */
+.smart-dept-banner {
+  margin-bottom: 20px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+/* Table */
+.smart-table-wrap table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.smart-table-wrap th,
+.smart-table-wrap td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+  font-size: 14px;
+}
+
+.smart-table-wrap th {
+  background: teal;
+  color: white;
+}
+
+.smart-no-results {
+  display: none;
+  margin-top: 10px;
+  color: red;
+  font-weight: 500;
+}
+
+.smart-table-footer {
+  margin-top: 15px;
+  font-size: 13px;
+  color: #555;
+}

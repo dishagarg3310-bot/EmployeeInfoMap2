@@ -1,0 +1,146 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f4f6f8;
+}
+
+.main {
+    margin-left: 0;               /* FULL WIDTH */
+    margin-top: 64px;
+    width: 100%;
+
+    padding: 32px 40px;
+    transition: filter 0.3s ease;
+}
+
+/* WHEN SIDEBAR EXPANDS */
+body.sidebar-expanded .main {
+    margin-left: 240px;
+    width: calc(100% - 240px);
+}
+/* ==============================
+   USER SIDE ID CARD STYLES
+   Add karo: public/user/css/global.css ke end mein
+============================== */
+
+.idcard-status {
+    text-align: center;
+    padding: 60px 20px;
+    color: #777;
+    font-size: 14px;
+}
+
+.idcard-status .status-icon {
+    font-size: 52px;
+    margin-bottom: 14px;
+}
+
+.user-idcard-wrapper {
+    max-width: 500px;
+}
+
+.user-idcard {
+    background: linear-gradient(135deg, #004d40, #00796b);
+    border-radius: 14px;
+    color: #fff;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.user-idcard-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 14px 18px;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.user-idcard-header h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.user-idcard-body {
+    display: flex;
+    gap: 18px;
+    padding: 18px;
+}
+
+.user-idcard-left .user-photo-placeholder {
+    width: 90px;
+    height: 110px;
+    background: #fff;
+    border-radius: 10px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.user-idcard-right {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.user-idcard-info {
+    font-size: 14px;
+}
+
+.user-idcard-info p {
+    margin: 6px 0;
+}
+
+.user-idcard-info strong {
+    min-width: 95px;
+    display: inline-block;
+}
+
+.user-qr-placeholder {
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.user-qr-placeholder img {
+    width: 100px;
+    height: 100px;
+}
+
+.user-idcard-footer {
+    text-align: center;
+    font-size: 12px;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.user-idcard-actions {
+    margin-top: 18px;
+}
+
+.btn-download-pdf {
+    background: #00796b;
+    color: #fff;
+    border: none;
+    padding: 11px 32px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-download-pdf:hover {
+    background: #00695c;
+}   

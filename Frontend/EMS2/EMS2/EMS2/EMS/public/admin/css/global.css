@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f4f6f8;
+}
+
+.main {
+    margin-left: 0;               /* FULL WIDTH */
+    margin-top: 64px;
+    width: 100%;
+
+    padding: 32px 40px;
+    transition: filter 0.3s ease;
+}
+
+/* WHEN SIDEBAR EXPANDS */
+body.sidebar-expanded .main {
+    margin-left: 240px;
+    width: calc(100% - 240px);
+}

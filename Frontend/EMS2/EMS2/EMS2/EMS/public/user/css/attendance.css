@@ -1,0 +1,81 @@
+/* FORCE ISOLATION */
+#attendance-page {
+    background: #ffffff;
+    padding: 25px;
+    margin: 20px;
+    border-radius: 6px;
+}
+
+/* Heading */
+#attendance-page h2 {
+    color: black;
+    margin-bottom: 20px;
+}
+
+/* Filters */
+#attendance-page .att-filters {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 25px;
+}
+
+#attendance-page label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+#attendance-page select {
+    padding: 8px;
+    width: 220px;
+}
+
+/* SUMMARY CARDS */
+#attendance-page .att-summary {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+#attendance-page .att-card {
+    background: #eaeaea;
+    padding: 20px;
+    text-align: center;
+    border-radius: 4px;
+    color: teal;
+}
+
+#attendance-page .att-card h3 {
+    margin: 5px 0 0;
+    font-size: 22px;
+}
+
+/* TABLE */
+#attendance-page .att-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+#attendance-page .att-table th,
+#attendance-page .att-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+#attendance-page .att-table thead {
+    background: #f0f0f0;
+}
+
+/* STATUS COLORS */
+#attendance-page .present {
+    color: green;
+    font-weight: bold;
+}
+
+#attendance-page .absent {
+    color: red;
+    font-weight: bold;
+}

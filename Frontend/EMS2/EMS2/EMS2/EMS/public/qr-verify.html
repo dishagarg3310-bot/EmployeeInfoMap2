@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Employee Verification</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/qr-verify.css" />
+</head>
+<body>
+
+<div class="verify-page">
+
+    <!-- PASSWORD SCREEN -->
+    <div id="passwordScreen" class="verify-card">
+        <div class="verify-icon">🪪</div>
+        <h2>Employee Verification</h2>
+        <p class="verify-subtitle">Enter your password to view details</p>
+
+        <div id="empIdDisplay" class="empid-badge"></div>
+
+        <div class="input-group">
+            <input
+                type="password"
+                id="passwordInput"
+                placeholder="Enter your password"
+                autocomplete="current-password"
+            />
+            <button id="verifyBtn" class="btn-verify">Verify →</button>
+        </div>
+
+        <div id="errorMsg" class="error-msg" style="display:none"></div>
+    </div>
+
+    <!-- DETAILS SCREEN -->
+    <div id="detailsScreen" style="display:none">
+
+        <div class="details-header">
+            <h2>Employee Details</h2>
+            <p id="detailsEmpId" class="empid-badge"></p>
+        </div>
+
+        <div class="details-card">
+            <h3 class="section-title">📋 Department Information</h3>
+            <div class="details-grid" id="deptGrid"></div>
+        </div>
+
+        <div class="details-card">
+            <h3 class="section-title">👤 Personal Information</h3>
+            <div class="details-grid" id="personalGrid"></div>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="/js/qr-verify.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<div class="dashboard-container">
+
+  <h2 class="page-title">My Dashboard</h2>
+
+  <!-- STATS -->
+  <div class="stats-overview">
+    <div class="stat-card dashboard-card">
+      <div class="stat-info">
+        <h3 id="total-employees">0</h3>
+        <p>Total Employees</p>
+      </div>
+    </div>
+
+    <div class="stat-card dashboard-card">
+      <div class="stat-info">
+        <h3 id="departments-count">10</h3>
+        <p>Departments</p>
+      </div>
+    </div>
+
+    <div class="stat-card dashboard-card">
+      <div class="stat-info">
+        <h3 id="active-employees">0</h3>
+        <p>Active Employees</p>
+      </div>
+    </div>
+
+    <div class="stat-card dashboard-card">
+      <div class="stat-info">
+        <h3 id="new-hires">0</h3>
+        <p>New Hires</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- GRAPH (MATCH ADMIN) -->
+<div class="chart-section dashboard-card">
+  <h3>Employee Distribution by Department</h3>
+
+  <div class="chart-placeholder">
+    <canvas id="deptChart" style="height:300px;"></canvas>
+  </div>
+</div>
+
+<!-- HR ACTIVITY (FULL WIDTH BELOW GRAPH) -->
+<div class="recent-activity-section dashboard-card">
+  <h3>Recent HR Activity</h3>
+
+  <div class="recent-activity-list" id="recent-activity-container"></div>
+</div>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Employee ID Card - Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="../css/global.css" />
+
+    <!-- Sidebar + Topbar -->
+    <link rel="stylesheet" href="../css/sidebar.css" />
+    <link rel="stylesheet" href="../css/topbar.css" />
+
+    <!-- Page CSS -->
+    <link rel="stylesheet" href="../css/employee-idcard.css" />
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div id="sidebar-container"></div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+        <!-- Topbar -->
+        <div id="topbar-container"></div>
+
+        <!-- Page Header -->
+        <div class="page-header">
+            <h2>Employee ID Card</h2>
+            <p>Generate ID cards for active employees</p>
+        </div>
+
+        <!-- Search -->
+        <div class="card search-card">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search by Employee ID or Name"
+            />
+        </div>
+
+        <!-- Employee List -->
+        <div class="card employee-table">
+            <div class="table-header">
+                <span>Employee ID</span>
+                <span>Employee Name</span>
+                <span>Action</span>
+            </div>
+
+            <div id="employeeList" class="table-body"></div>
+        </div>
+
+        <!-- ID CARD PREVIEW -->
+        <div id="idCardWrapper" style="display:none;">
+            <div class="idcard">
+                <div class="idcard-header">
+                    <p>Employee Identity Card</p>
+                </div>
+
+                <div class="idcard-body">
+                    <img src="../assets/user.png" class="photo" />
+
+                    <div class="info">
+                        <h4 id="cardName"></h4>
+                        <p><b>ID:</b> <span id="cardId"></span></p>
+                        <p><b>Department:</b> <span id="cardDept"></span></p>
+                        <p><b>Designation:</b> <span id="cardDesig"></span></p>
+                    </div>
+                </div>
+
+                <div class="idcard-footer">
+                    Authorized Signature
+                </div>
+            </div>
+        </div>
+
+    </div>

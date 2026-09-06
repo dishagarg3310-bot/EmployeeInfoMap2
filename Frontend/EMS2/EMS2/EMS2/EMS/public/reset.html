@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Your Password - EmployeeInfo Map</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="toastContainer"></div>
+
+<header>
+    <div class="container">
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo">EIM</div>
+                <div>
+                    <div class="title">EmployeeInfo Map</div>
+                    <div class="subtitle">Empowering Excellence Through Education</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="login-container" style="display: flex; justify-content: center; margin-top: 50px;">
+        <div class="card" style="width: 100%; max-width: 450px;">
+            <div class="card-header gradient-blue">
+                <div class="card-icon">🔄</div>
+                <h2 class="card-title">Create New Password</h2>
+                <p>Set a new strong password for your account</p>
+            </div>
+
+            <div class="card-body">
+                <p id="errorMsg" style="color: red; margin-bottom: 10px; text-align: center;" class="hidden"></p>
+                <form id="resetPasswordForm" onsubmit="handleResetForm(event)">
+                    <div class="input-group">
+                        <label>New Password <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">🔒</span>
+                            <input type="password" id="resetNewPassword" placeholder="Enter new password" required>
+                            <button type="button" class="toggle-password" onclick="togglePass('resetNewPassword', 'eye1')">
+                                <span id="eye1">👁️</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Confirm Password <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">🔒</span>
+                            <input type="password" id="resetConfirmPassword" placeholder="Confirm new password" required>
+                            <button type="button" class="toggle-password" onclick="togglePass('resetConfirmPassword', 'eye2')">
+                                <span id="eye2">👁️</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" id="resetBtn">
+                        🔄 Update Password
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+// Capture token immediately on load in case the browser or server strips it
+function getTokenFromHash() {
+    const hash = window.location.hash;
+    if (hash && hash.startsWith('#token=')) {
+        return hash.substring(7); // Remove '#token='
+    }
+    return null;
+}
+
+(function() {
+    const token = getTokenFromHash();
+    if (token) {
+        sessionStorage.setItem('secureResetToken', token);
+    }
+})();
+
+function togglePass(inputId, iconId) {
+    const input = document.getElementById(inputId);
+    const icon = document.getElementById(iconId);
+    input.type = input.type === 'password' ? 'text' : 'password';
+    icon.textContent = input.type === 'password' ? '👁️' : '🙈';
+}
+
+function showToastMsg(message, type) {
+    const container = document.getElementById('toastContainer');
+    const toast = document.createElement('div');
+    toast.className = `toast ${type}`;
+    toast.innerHTML = `
+        <span>${type === 'success' ? '✅' : '❌'}</span>
+        <p style="flex:1; margin:0">${message}</p>
+        <button class="toast-close" onclick="this.parentElement.remove()">×</button>
+    `;
+    container.appendChild(toast);
+    setTimeout(() => toast.remove(), 5000);
+}
+
+function validPass(password) {
+    if (password.length < 8) return false;
+    if (!/[A-Z]/.test(password)) return false;
+    if (!/[a-z]/.test(password)) return false;
+    if (!/[0-9]/.test(password)) return false;
+    if (!/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password)) return false;
+    return true;
+}
+
+async function handleResetForm(event) {
+    event.preventDefault();
+    let token = getTokenFromHash() || sessionStorage.getItem('secureResetToken');
+    
+    if (!token) {
+        showToastMsg('Missing reset token. Please ensure you clicked the full link in your email.', 'error');
+        return;
+    }
+
+    const newPassword = document.getElementById('resetNewPassword').value;
+    const confirmPassword = document.getElementById('resetConfirmPassword').value;
+    const btn = document.getElementById('resetBtn');
+
+    if (!validPass(newPassword)) {
+        showToastMsg('Password must contain 8+ chars, uppercase, lowercase, number, and special character.', 'error');
+        return;
+    }
+    if (newPassword !== confirmPassword) {
+        showToastMsg('Passwords do not match.', 'error');
+        return;
+    }
+
+    btn.disabled = true;
+    btn.innerHTML = '⏳ Updating...';
+
+    try {
+        const response = await fetch('http://localhost:5000/api/auth/reset-password', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ token, newPassword })
+        });
+        const data = await response.json();
+
+        if (response.ok) {
+            showToastMsg('Password updated! Redirecting to login...', 'success');
+            // Wait a moment then redirect to login page with auto-select role
+            setTimeout(() => {
+                const redirectRole = data.role || 'user'; // default to user if not provided
+                window.location.href = 'login.html?role=' + redirectRole;
+            }, 2000);
+        } else {
+            showToastMsg(data.message || 'Error resolving reset token.', 'error');
+        }
+    } catch (error) {
+        console.error(error);
+        showToastMsg('Server error while resetting password.', 'error');
+    } finally {
+        btn.disabled = false;
+        btn.innerHTML = '🔄 Update Password';
+    }
+}
+</script>
+</body>
+</html>

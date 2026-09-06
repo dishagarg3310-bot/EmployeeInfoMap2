@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmployeeInfo Map - Login Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="toastContainer"></div>
+
+<header>
+    <div class="container">
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo">EIM</div>
+                <div>
+                    <div class="title">EmployeeInfo Map</div>
+                    <div class="subtitle" id="headerSubtitle">
+                        Empowering Excellence Through Education
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div id="roleSelection" class="role-selection">
+        <p class="page-title">Secure Access Portal</p>
+        <h2 class="page-heading">Employee Info Map</h2>
+        <p class="page-description">
+            Choose the appropriate role to access your dashboard
+        </p>
+
+        <div class="role-grid">
+            <div class="role-card" onclick="selectRole('admin')">
+                <div class="role-icon gradient-blue">🛡️</div>
+                <h3 class="role-title">Administrator</h3>
+                <p class="role-desc">System Administration & Configuration</p>
+                <div class="role-link">Continue →</div>
+            </div>
+
+            <div class="role-card" onclick="selectRole('hr')">
+                <div class="role-icon gradient-purple">💼</div>
+                <h3 class="role-title">HR Personnel</h3>
+                <p class="role-desc">Human Resources Management</p>
+                <div class="role-link">Continue →</div>
+            </div>
+
+            <div class="role-card" onclick="selectRole('user')">
+                <div class="role-icon gradient-teal">👥</div>
+                <h3 class="role-title">Faculty</h3>
+                <p class="role-desc">General User Access</p>
+                <div class="role-link">Continue →</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="loginScreen" class="login-container hidden">
+        <button class="back-btn" onclick="goBack()">← Back to Home</button>
+
+        <div class="card">
+            <div class="card-header gradient-blue" id="cardHeader">
+                <div class="card-icon" id="cardIcon">🛡️</div>
+                <h2 class="card-title">Welcome</h2>
+                <p id="roleTitle">Administrator</p>
+            </div>
+
+            <div class="card-body">
+                <div class="info-box" id="roleHint">
+                    Full system access with administrative privileges
+                </div>
+
+                <form id="loginForm" onsubmit="handleLogin(event)">
+                    <div class="input-group">
+                        <label>Username <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">👤</span>
+                            <input type="text" id="username" placeholder="Enter username (lowercase)" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Password <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">🔒</span>
+                            <input type="password" id="password" placeholder="Enter password" required>
+                            <button type="button" class="toggle-password" onclick="togglePassword('password', 'eyeIcon')">
+                                <span id="eyeIcon">👁️</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="options-row">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="rememberMe"> Remember me
+                        </label>
+                        <button type="button" class="link" onclick="openForgotPasswordModal()">Forgot Password?</button>
+                    </div>
+
+                    <div class="signup-text" id="signupSection">
+                        Don't have an account?
+                        <button type="button" class="link" onclick="openSignupModal()">
+                            Sign Up
+                        </button>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" id="loginBtn">
+                        🔐 Sign In
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+<div id="signupModal" class="modal hidden">
+    <div class="modal-overlay" onclick="closeSignupModal()"></div>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 class="modal-title">Create Account</h2>
+            <button class="modal-close" onclick="closeSignupModal()">✕</button>
+        </div>
+
+        <div class="modal-body">
+            <form id="signupForm" onsubmit="handleSignup(event)">
+                <input type="hidden" id="signupRole" value="user">
+
+                <div class="input-group">
+                    <label>Full Name <span class="required">*</span></label>
+                    <input type="text" id="fullName" autocomplete="name" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Username <span class="required">*</span></label>
+                    <input type="text" id="signupUsername" placeholder="lowercase letters only" autocomplete="username" required>
+                    <div class="error-message hidden" id="usernameError"></div>
+                </div>
+
+                <div class="input-group">
+                    <label>Email <span class="required">*</span></label>
+                    <input type="email" id="email" placeholder="example@gmail.com" autocomplete="email" required>
+                    <div class="error-message hidden" id="emailError"></div>
+                </div>
+
+                <!-- Conditional fields for Admin/HR -->
+                <div id="adminHrFields" style="display: none;">
+                    <div class="input-group">
+                        <label>Department <span class="required">*</span></label>
+                        <select id="signupDepartment" required>
+                            <option value="">-- Select Department --</option>
+                            <option value="Academic Administration">Academic Administration</option>
+                            <option value="Human Resources">Human Resources</option>
+                        </select>
+                        <div class="error-message hidden" id="departmentError"></div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Contact Number <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <input type="tel" id="signupPhone" placeholder="+91 9876543210" required>
+                        </div>
+                        <div class="error-message hidden" id="phoneError"></div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Address</label>
+                        <textarea id="signupAddress" placeholder="Enter your address"></textarea>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Create Password <span class="required">*</span></label>
+                    <div class="input-wrapper">
+                        <input type="password" id="createPassword" autocomplete="new-password" required>
+                        <button type="button" class="toggle-password" onclick="togglePassword('createPassword', 'eyeIcon2')">
+                            <span id="eyeIcon2">👁️</span>
+                        </button>
+                    </div>
+                    <div class="password-strength hidden" id="passwordStrength"></div>
+                </div>
+
+                <div class="input-group">
+                    <label>Confirm Password <span class="required">*</span></label>
+                    <div class="input-wrapper">
+                        <input type="password" id="confirmPassword" autocomplete="new-password" required>
+                        <button type="button" class="toggle-password" onclick="togglePassword('confirmPassword', 'eyeIcon3')">
+                            <span id="eyeIcon3">👁️</span>
+                        </button>
+                    </div>
+                    <div class="error-message hidden" id="confirmError"></div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    ✨ Create Account
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Forgot Password Modal -->
+<div id="forgotPasswordModal" class="modal hidden">
+    <div class="modal-overlay" onclick="closeForgotPasswordModal()"></div>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 class="modal-title">Reset Password</h2>
+            <button class="modal-close" onclick="closeForgotPasswordModal()">✕</button>
+        </div>
+        <div class="modal-body">
+            <p style="margin-bottom: 20px; color: #666;">Enter your email address and we'll send you a link to reset your password.</p>
+            <form id="forgotPasswordForm" onsubmit="handleForgotPassword(event)">
+                <div class="input-group">
+                    <label>Email <span class="required">*</span></label>
+                    <input type="email" id="forgotEmail" placeholder="example@gmail.com" required>
+                </div>
+                <button type="submit" class="btn btn-primary" id="forgotBtn">
+                    📧 Send Reset Link
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="script.js"></script>
+</body>
+</html>

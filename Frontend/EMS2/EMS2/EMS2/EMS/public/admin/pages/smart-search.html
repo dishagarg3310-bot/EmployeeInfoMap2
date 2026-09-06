@@ -1,0 +1,60 @@
+<div class="smart-search-page">
+
+  <div class="smart-card">
+
+    <!-- Smart Search Header -->
+    <div class="smart-card-header">
+      <h1>Smart Search</h1>
+     
+    </div>
+
+    <div class="smart-card-body">
+
+      <!-- Search Input Row -->
+      <div class="smart-search-row">
+        <input id="searchInput" class="smart-search-input" type="text"
+          placeholder="Search anything" />
+        <button class="smart-search-btn" onclick="runSearch()">Search</button>
+      </div>
+
+      <!-- Answer Box for NL Queries -->
+      <div class="smart-answer-box" id="answerBox">
+        <span id="answerText"></span>
+      </div>
+
+      <!-- Department Banner -->
+      <div class="smart-dept-banner">
+        Total Employees in Department:
+        <span id="deptCount">0</span>
+        <span id="deptLabel">All Departments</span>
+      </div>
+
+      <!-- Employee Table -->
+      <div class="smart-table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Employee ID</th>
+              <th>Name</th>
+              <th>Department</th>
+              <th>Designation</th>
+            </tr>
+          </thead>
+          <tbody id="empTable"></tbody>
+        </table>
+
+        <!-- No Results Message -->
+        <div id="noResults" class="smart-no-results">
+          No employees found matching your search.
+        </div>
+
+        <!-- Table Footer -->
+        <div class="smart-table-footer">
+          <span id="footerCount"></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

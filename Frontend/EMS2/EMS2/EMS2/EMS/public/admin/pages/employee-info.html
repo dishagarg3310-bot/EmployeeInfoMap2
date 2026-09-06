@@ -1,0 +1,203 @@
+<div class="employee-page">
+
+    <!-- Filter Card -->
+    <div class="employee-card">
+        <input type="text" id="searchInput" placeholder="Search employee..." />
+
+        <select id="employeeType">
+            <option value="active">Active Employees</option>
+            <option value="new">New Hires</option>
+        </select>
+    </div>
+
+    <!-- Employee Table -->
+    <div class="employee-table">
+        <div class="table-header">
+            <span>Employee ID</span>
+            <span>Employee Name</span>
+        </div>
+
+        <div class="employee-list" id="employeeList"></div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="action-buttons" id="actionButtons"></div>
+
+</div>
+
+<!-- Add / View / Update Modal -->
+<div class="modal-overlay" id="employeeModal">
+    <div class="modal modal-large">
+
+        <h3>Employee</h3>
+
+        <form id="employeeForm">
+
+            <!-- =====================
+                 DEPARTMENT INFORMATION
+            ====================== -->
+            <div class="form-section">
+                <h4>Department Information</h4>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Emp ID</label>
+                        <input type="text" id="empID" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" id="empFName" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Middle Name</label>
+                        <input type="text" id="empMName" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" id="empLName" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Department</label>
+                        <select id="empDept" disabled>
+                            <option>Computer Science</option>
+                            <option>Information Technology</option>
+                            <option>CS-AI</option>
+                            <option>Electronics and Communication</option>
+                            <option>Electrical Engineering</option>
+                            <option>Mechatronics</option>
+                            <option>Electronics and Instrumentation</option>
+                            <option>Chemical Enginering</option>
+                            <option>VLSI</option>
+                            <option>Biotechnology</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Designation</label>
+                        <input type="text" id="empDesignation" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Date of Joining</label>
+                        <input type="date" id="empJoinDate" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Present App Date</label>
+                        <input type="date" id="empPresentAppDate" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>PayScale</label>
+                        <input type="text" id="empPayScale" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- =====================
+                 PERSONAL INFORMATION
+            ====================== -->
+            <div class="form-section">
+                <h4>Personal Information</h4>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label>Father's Name</label>
+                        <input type="text" id="empFatherName" disabled />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Mother's Name</label>
+                        <input type="text" id="empMotherName" disabled />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <select id="empGender" disabled>
+                            <option>Male</option>
+                            <option>Female</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="empEmail" disabled />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Contact Number</label>
+                        <input type="text" id="empPhone" disabled />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Marital Status</label>
+                        <select id="empMaritalStatus" disabled>
+                            <option>Married</option>
+                            <option>UnMarried</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Husband/Wife's Name</label>
+                        <input type="text" id="empSpouseName" disabled />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Address1</label>
+                        <input type="text" id="empAddress1" disabled />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Address2</label>
+                        <input type="text" id="empAddress2" disabled />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Mother Tongue</label>
+                        <input type="text" id="empMotherTongue" disabled />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select id="empCategory" disabled>
+                            <option>General</option>
+                            <option>OBC</option>
+                            <option>SC</option>
+                            <option>ST</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>City</label>
+                        <input type="text" id="empCity" disabled />
+                    </div>
+
+                    <div class="form-group">
+                        <label>State</label>
+                        <input type="text" id="empState" disabled />
+                    </div>
+
+                    <div class="form-group">
+                        <label>PIN Code</label>
+                        <input type="text" id="empPincode" disabled />
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="modal-actions">
+                <button type="button" class="btn-cancel">Cancel</button>
+                <button type="submit" class="btn-save">Save</button>
+            </div>
+
+        </form>
+
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="page-container">
+
+<h2 class="page-title">Resume Parsing</h2>
+
+<div class="resume-grid">
+
+<!-- Upload Resume Card -->
+<div class="card">
+
+<h3>Upload Resume</h3>
+
+<input type="file" id="resumeFile" accept=".pdf">
+
+<button class="primary-btn" onclick="uploadResume()">
+Upload Resume
+</button>
+
+</div>
+
+
+<!-- Parsed Information Card -->
+<div class="card">
+
+<h3>Parsed Information</h3>
+
+<p><b>Name:</b> <span id="candidateName">-</span></p>
+
+<p><b>Email:</b> <span id="candidateEmail">-</span></p>
+
+<p><b>Phone:</b> <span id="candidatePhone">-</span></p>
+
+<p><b>Skills:</b> <span id="candidateSkills">-</span></p>
+
+<p><b>Status:</b> NEW</p>
+
+<button class="primary-btn" onclick="saveCandidate()">
+Save Candidate
+</button>
+
+</div>
+
+</div>
+
+</div>
+<script src="/hr/js/resume-parsing.js"></script>
+
+</body>
+</html>

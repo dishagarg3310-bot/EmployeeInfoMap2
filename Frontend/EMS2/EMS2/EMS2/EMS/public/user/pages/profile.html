@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Profile</title>
+  <link rel="stylesheet" href="/user/css/profile.css">
+</head>
+<body>
+
+<div class="profile-page">
+
+  <!-- PROFILE HEADER -->
+  <div class="profile-header">
+    <div class="profile-pic-container">
+      <img id="profilePic" alt="Profile Picture">
+      <input type="file" id="photoUpload" accept="image/*" style="display:none;">
+      <button id="uploadPhotoBtn" class="upload-btn">📷 Change Photo</button>
+    </div>
+  <div>
+    <h2 id="empFullName"></h2>
+    <p id="empDesignationHeader"></p>
+  </div>
+</div>
+
+
+  <!-- TABS -->
+  <div class="profile-tabs">
+    <div class="tab active" onclick="showTab('department', this)">Department</div>
+    <div class="tab" onclick="showTab('personal', this)">Personal</div>
+  </div>
+
+  <!-- DEPARTMENT TAB -->
+  <div class="tab-content active" id="department">
+  <div class="profile-card">
+    <div class="grid">
+
+      <div><label>Employee ID</label><input id="empID" disabled></div>
+      <div><label>First Name</label><input id="empFName" disabled></div>
+      <div><label>Middle Name</label><input id="empMName" disabled></div>
+      <div><label>Last Name</label><input id="empLName" disabled></div>
+      <div><label>Department</label><input id="empDept" disabled></div>
+      <div><label>Designation</label><input id="empDesignation" disabled></div>
+      <div><label>Date of Joining</label><input id="empJoinDate" disabled></div>
+      <div><label>Present App Date</label><input id="empPresentAppDate" disabled></div>
+      <div><label>Pay Scale</label><input id="empPayScale" disabled></div>
+
+    </div>
+  </div>
+</div>
+
+
+  <!-- PERSONAL TAB -->
+  <div class="tab-content" id="personal">
+  <div class="profile-card">
+    <div class="grid">
+
+      <div><label>Father's Name</label><input id="empFatherName"></div>
+      <div><label>Mother's Name</label><input id="empMotherName"></div>
+
+      <div><label>Gender</label>
+        <select id="empGender">
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div><label>Email</label><input id="empEmail"></div>
+      <div>
+        <label>Contact Number</label>
+        <input id="empPhone" placeholder="+91 9876543210">
+        <div class="error-message hidden" id="phoneError"></div>
+      </div>
+
+      <div><label>Marital Status</label>
+        <select id="empMaritalStatus">
+          <option>Married</option>
+          <option>UnMarried</option>
+        </select>
+      </div>
+
+      <div><label>Husband / Wife Name</label><input id="empSpouseName"></div>
+      <div><label>Address 1</label><input id="empAddress1"></div>
+      <div><label>Address 2</label><input id="empAddress2"></div>
+      <div><label>Mother Tongue</label><input id="empMotherTongue"></div>
+
+      <div><label>Category</label>
+        <select id="empCategory">
+          <option>General</option>
+          <option>OBC</option>
+          <option>SC</option>
+          <option>ST</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div><label>City</label><input id="empCity"></div>
+      <div><label>State</label><input id="empState"></div>
+      <div><label>PIN Code</label><input id="empPincode"></div>
+
+    </div>
+
+    <div class="actions">
+      <button id="saveProfileBtn">Save</button>
+    </div>
+
+  </div>
+</div>
+
+<script src="/user/js/profile.js"></script>
+
+</body>
+</html>

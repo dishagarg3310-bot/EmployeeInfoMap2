@@ -1,0 +1,187 @@
+.page-header {
+    margin-bottom: 20px;
+}
+
+.search-card input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.employee-table {
+    margin-top: 20px;
+}
+
+.table-header {
+    display: grid;
+    grid-template-columns: 200px 1fr 160px;
+    padding: 12px 18px;
+    background: #f5f7fa;
+    font-weight: 600;
+    font-size: 13px;
+    color: #555;
+    border-bottom: 1px solid #eee;
+}
+
+.employee-row {
+    display: grid;
+    grid-template-columns: 200px 1fr 160px;
+    padding: 14px 18px;
+    border-bottom: 1px solid #eee;
+    align-items: center;
+    font-size: 14px;
+    color: #333;
+}
+
+.employee-row:hover {
+    background: #f5f7fa;
+}
+
+.btn-generate,
+.btn-view {
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.btn-generate { background: #00796b; }
+.btn-view     { background: #1976d2; }
+
+.btn-generate:hover { background: #00695c; }
+.btn-view:hover     { background: #1565c0; }
+
+/* ==============================
+   OVERLAY (backdrop)
+============================== */
+
+.idcard-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* ==============================
+   ID CARD (MAIN)
+============================== */
+
+.idcard-wrapper {
+    width: 470px;
+    max-width: 95vw;
+    background: linear-gradient(135deg, #004d40, #00796b);
+    border-radius: 14px;
+    color: #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+    animation: slideUp 0.25s ease;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(24px); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+}
+
+/* HEADER */
+.idcard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 18px;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.idcard-header h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.close-idcard {
+    font-size: 22px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #fff;
+    line-height: 1;
+}
+
+.close-idcard:hover { opacity: 0.75; }
+
+/* BODY */
+.idcard-body {
+    display: flex;
+    gap: 18px;
+    padding: 18px;
+}
+
+/* LEFT — photo */
+.idcard-left .photo-placeholder {
+    width: 90px;
+    height: 110px;
+    background: #fff;
+    border-radius: 10px;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* RIGHT — info + QR */
+.idcard-right {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.idcard-info {
+    font-size: 14px;
+}
+
+.idcard-info p {
+    margin: 6px 0;
+}
+
+.idcard-info strong {
+    min-width: 95px;
+    display: inline-block;
+}
+
+/* QR */
+.qr-placeholder {
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.qr-placeholder img {
+    width: 100px;
+    height: 100px;
+}
+
+/* FOOTER */
+.idcard-footer {
+    text-align: center;
+    font-size: 12px;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.2);
+}

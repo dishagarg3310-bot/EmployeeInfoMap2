@@ -1,0 +1,176 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f0f2f5;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 40px 16px;
+}
+
+.verify-page {
+    width: 100%;
+    max-width: 620px;
+}
+
+/* ==============================
+   PASSWORD CARD
+============================== */
+
+.verify-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 40px 32px;
+    text-align: center;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+}
+
+.verify-icon {
+    font-size: 56px;
+    margin-bottom: 16px;
+}
+
+.verify-card h2 {
+    font-size: 22px;
+    color: #222;
+    margin-bottom: 8px;
+}
+
+.verify-subtitle {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 20px;
+}
+
+.empid-badge {
+    display: inline-block;
+    background: #e0f2f1;
+    color: #00796b;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 24px;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.input-group input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+}
+
+.input-group input:focus {
+    border-color: #00796b;
+}
+
+.btn-verify {
+    background: #00796b;
+    color: #fff;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    white-space: nowrap;
+}
+
+.btn-verify:hover {
+    background: #00695c;
+}
+
+.error-msg {
+    margin-top: 14px;
+    color: #e53935;
+    font-size: 13px;
+    background: #ffebee;
+    padding: 10px 14px;
+    border-radius: 8px;
+}
+
+/* ==============================
+   DETAILS SCREEN
+============================== */
+
+.details-header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.details-header h2 {
+    font-size: 22px;
+    color: #222;
+    margin-bottom: 8px;
+}
+
+.details-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 18px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.section-title {
+    font-size: 15px;
+    color: #00796b;
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e0f2f1;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 24px;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.detail-label {
+    font-size: 11px;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.detail-value {
+    font-size: 14px;
+    color: #222;
+    font-weight: 500;
+}
+
+.detail-value.empty {
+    color: #bbb;
+    font-style: italic;
+    font-weight: 400;
+}
+
+@media (max-width: 480px) {
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+    .input-group {
+        flex-direction: column;
+    }
+}
