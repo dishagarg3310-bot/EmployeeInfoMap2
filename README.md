@@ -63,7 +63,21 @@ EmployeeInfoMap2/
 
 ## Usage
 
-[Add commands to run backend, frontend, and resume parser]
+1. Start the backend server
+   ```
+   cd backend
+   node server.js
+   ```
+
+2. Start the frontend
+   ```
+   The frontend will run automatically at `http://localhost:5000`.
+
+3. Run the resume parser
+   ```
+   cd resume_parser_python
+   python parser.py
+   ```
 
 ## License
 
