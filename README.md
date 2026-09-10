@@ -79,6 +79,3 @@ EmployeeInfoMap2/
    python parser.py
    ```
 
-## License
-
-[Add license if applicable]
